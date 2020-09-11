@@ -194,18 +194,23 @@ public class BinanceApiAsyncRestClientImpl implements BinanceApiAsyncRestClient 
   }
 
   @Override
-  public void getMyTrades(String symbol, Integer limit, Long fromId, Long recvWindow, Long timestamp, BinanceApiCallback<List<Trade>> callback) {
-    binanceApiService.getMyTrades(symbol, limit, fromId, recvWindow, timestamp).enqueue(new BinanceApiCallbackAdapter<>(callback));
+  public void getMyTrades(String symbol, Integer limit, Long fromId, Long startTime, Long endTime, Long recvWindow, Long timestamp, BinanceApiCallback<List<Trade>> callback) {
+    binanceApiService.getMyTrades(symbol, limit, fromId, startTime, endTime, recvWindow, timestamp).enqueue(new BinanceApiCallbackAdapter<>(callback));
   }
 
   @Override
   public void getMyTrades(String symbol, Integer limit, BinanceApiCallback<List<Trade>> callback) {
-    getMyTrades(symbol, limit, null, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, System.currentTimeMillis(), callback);
+    getMyTrades(symbol, limit, null, null, null, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, System.currentTimeMillis(), callback);
   }
 
   @Override
   public void getMyTrades(String symbol, BinanceApiCallback<List<Trade>> callback) {
-    getMyTrades(symbol, null, null, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, System.currentTimeMillis(), callback);
+    getMyTrades(symbol, null, null, null, null, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, System.currentTimeMillis(), callback);
+  }
+
+  @Override
+  public void getMyTrades(String symbol, Long startTime, Long endTime, BinanceApiCallback<List<Trade>> callback) {
+    getMyTrades(symbol, null, null, startTime, endTime, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, System.currentTimeMillis(), callback);
   }
 
   @Override
