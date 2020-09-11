@@ -234,7 +234,7 @@ public interface BinanceApiAsyncRestClient {
    * @param fromId TradeId to fetch from. Default gets most recent trades.
    * @param callback the callback that handles the response with a list of trades
    */
-  void getMyTrades(String symbol, Integer limit, Long fromId, Long recvWindow, Long timestamp, BinanceApiCallback<List<Trade>> callback);
+  void getMyTrades(String symbol, Integer limit, Long fromId, Long startTime, Long endTime, Long recvWindow, Long timestamp, BinanceApiCallback<List<Trade>> callback);
 
   /**
    * Get trades for a specific account and symbol.
@@ -252,6 +252,16 @@ public interface BinanceApiAsyncRestClient {
    * @param callback the callback that handles the response with a list of trades
    */
   void getMyTrades(String symbol, BinanceApiCallback<List<Trade>> callback);
+
+  /**
+   * Get trades for a specific account and symbol.
+   *
+   * @param symbol symbol to get trades from
+   * @param startTime start time to get trades from
+   * @param endTime end time to get trades from
+   * @param callback the callback that handles the response with a list of trades
+   */
+  void getMyTrades(String symbol, Long startTime, Long endTime, BinanceApiCallback<List<Trade>> callback);
 
   /**
    * Submit a withdraw request.
