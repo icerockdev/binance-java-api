@@ -189,7 +189,7 @@ public interface BinanceApiRestClient {
   /**
    * Cancel all active orders on a symbol.
    *
-   * @param symbol symbol to get trades from
+   * @param symbol symbol to cancel
    */
   List<CancelOrderResponse> cancelAllOpenOrders(String symbol);
 

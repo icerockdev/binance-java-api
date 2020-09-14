@@ -210,7 +210,7 @@ public interface BinanceApiAsyncRestClient {
   /**
    * Cancel all active orders on a symbol.
    *
-   * @param symbol symbol to get trades from
+   * @param symbol symbol to cancel
    */
   void cancelAllOpenOrders(String symbol, BinanceApiCallback<List<CancelOrderResponse>> callback);
 
