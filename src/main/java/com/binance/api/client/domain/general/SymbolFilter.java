@@ -62,6 +62,22 @@ public class SymbolFilter {
    */
   private String minNotional;
 
+  /**
+   * Determines whether or not the MIN_NOTIONAL filter will also be applied to MARKET orders.
+   */
+  private Boolean applyToMarket;
+
+  /**
+   * Defines the number of minutes the average price is calculated over. 0 means the last price is used.
+   */
+  private Integer avgPriceMins;
+
+  // MAX_NUM_ORDERS
+
+  /**
+   * Defines the maximum number of orders an account is allowed to have open on a symbol. Note that both "algo" orders and normal orders are counted for this filter.
+   */
+  private String maxNumOrders;
 
   // MAX_NUM_ALGO_ORDERS
 
@@ -139,6 +155,31 @@ public class SymbolFilter {
 
   public void setMinNotional(String minNotional) {
     this.minNotional = minNotional;
+  }
+
+  public Boolean getApplyToMarket() {
+    return applyToMarket;
+  }
+
+  public void setApplyToMarket(Boolean applyToMarket) {
+    this.applyToMarket = applyToMarket;
+  }
+
+  public Integer getAvgPriceMins() {
+    return avgPriceMins;
+  }
+
+  public void setAvgPriceMins(Integer avgPriceMins) {
+    this.avgPriceMins = avgPriceMins;
+  }
+
+  public String getMaxNumOrders() {
+    return maxNumOrders;
+  }
+
+  public SymbolFilter setMaxNumOrders(String maxNumOrders) {
+    this.maxNumOrders = maxNumOrders;
+    return this;
   }
 
   public String getMaxNumAlgoOrders() {
