@@ -17,12 +17,12 @@ import static org.junit.Assert.assertThat;
 public class NewOrderResponseTest {
 
   private NewOrderResponse newOrderResponse;
-  private Trade trade;
+  private NewOrderTrade trade;
 
   @Before
   public void setUp() {
     newOrderResponse = new NewOrderResponse();
-    trade = new Trade();
+    trade = new NewOrderTrade();
     trade.setId(123L);
   }
 
@@ -43,7 +43,7 @@ public class NewOrderResponseTest {
     assertThat(newOrderResponse.toString(), containsString(",fills=Trade[id=123,"));
   }
 
-  private static List<Trade> trades(final Trade... trades) {
+  private static List<NewOrderTrade> trades(final NewOrderTrade... trades) {
     return Arrays.asList(trades);
   }
-} 
+}
