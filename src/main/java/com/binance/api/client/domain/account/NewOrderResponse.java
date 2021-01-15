@@ -54,7 +54,7 @@ public class NewOrderResponse {
   private OrderSide side;
 
   // @JsonSetter(nulls = Nulls.AS_EMPTY)
-  private List<Trade> fills;
+  private List<NewOrderTrade> fills;
 
   /**
    * Transact time for this order.
@@ -157,11 +157,11 @@ public class NewOrderResponse {
     this.side = side;
   }
 
-  public List<Trade> getFills() {
+  public List<NewOrderTrade> getFills() {
     return fills;
   }
 
-  public void setFills(List<Trade> fills) {
+  public void setFills(List<NewOrderTrade> fills) {
     this.fills = fills;
   }
 
