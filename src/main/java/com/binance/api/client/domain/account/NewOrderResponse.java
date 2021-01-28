@@ -54,7 +54,7 @@ public class NewOrderResponse {
   private OrderSide side;
 
   // @JsonSetter(nulls = Nulls.AS_EMPTY)
-  private List<NewOrderTrade> fills;
+  private List<Trade> fills;
 
   /**
    * Transact time for this order.
@@ -157,32 +157,32 @@ public class NewOrderResponse {
     this.side = side;
   }
 
-  public List<NewOrderTrade> getFills() {
+  public List<Trade> getFills() {
     return fills;
   }
 
-  public void setFills(List<NewOrderTrade> fills) {
+  public void setFills(List<Trade> fills) {
     this.fills = fills;
   }
 
   @Override
   public String toString() {
     return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
-        .append("symbol", symbol)
-        .append("orderId", orderId)
-        .append("clientOrderId", clientOrderId)
-        .append("transactTime", transactTime)
-        .append("price", price)
-        .append("origQty", origQty)
-        .append("executedQty", executedQty)
-        .append("status", status)
-        .append("timeInForce", timeInForce)
-        .append("type", type)
-        .append("side", side)
-        .append("fills", Optional.ofNullable(fills).orElse(Collections.emptyList())
-            .stream()
-            .map(Object::toString)
-            .collect(Collectors.joining(", ")))
-        .toString();
+            .append("symbol", symbol)
+            .append("orderId", orderId)
+            .append("clientOrderId", clientOrderId)
+            .append("transactTime", transactTime)
+            .append("price", price)
+            .append("origQty", origQty)
+            .append("executedQty", executedQty)
+            .append("status", status)
+            .append("timeInForce", timeInForce)
+            .append("type", type)
+            .append("side", side)
+            .append("fills", Optional.ofNullable(fills).orElse(Collections.emptyList())
+                    .stream()
+                    .map(Object::toString)
+                    .collect(Collectors.joining(", ")))
+            .toString();
   }
 }
