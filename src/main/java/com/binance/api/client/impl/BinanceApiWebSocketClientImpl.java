@@ -67,6 +67,11 @@ public class BinanceApiWebSocketClientImpl implements BinanceApiWebSocketClient,
         return createNewWebSocket(channel, new BinanceApiWebSocketListener<>(callback, new TypeReference<List<AllMarketTickersEvent>>() {}));
     }
 
+    public Closeable onIndividualTickerEvent(String symbol, BinanceApiCallback<AllMarketTickersEvent> callback) {
+        final String channel = String.format("%s@ticker", symbol);
+        return createNewWebSocket(channel, new BinanceApiWebSocketListener<>(callback, new TypeReference<AllMarketTickersEvent>() {}));
+    }
+
     /**
      * @deprecated This method is no longer functional. Please use the returned {@link Closeable} from any of the other methods to close the web socket.
      */
